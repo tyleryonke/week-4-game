@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Super Smash Bros. RPG</title>
+
+    <link rel="stylesheet" href="assets/css/reset.css">
+		
+	<link rel="stylesheet" href="assets/css/style.css">
+
+	<!-- Added link to the jQuery Library -->
+    <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+		<div id="head">
+			<img id="logo" src=assets/images/logo.png>
+			<h1>RPG!</h1>
+		</div>
+	<br>
+		<h2 id="playerChoiceHead">Choose your Player:</h2>
+			<div id="playerZone">
+				<button id='foxButton' class='btn classBtn' data-clicked='no' data-enemy='no'></button>
+				<button id='marioButton' class='btn classBtn' data-clicked='no' data-enemy='no'></button>
+				<button id='nessButton' class='btn classBtn' data-clicked='no' data-enemy='no'></button>
+				<button id='handButton' class='btn classBtn' data-clicked='no' data-enemy='no'></button>
+			</div>
+	<br>
+	<div id="fullFightZone">
+		<h2>Current Enemy:</h2>
+			<div id="fightZone"></div>
+	</div>
+	<br>
+	<div id="fullEnemyZone">
+		<h2>Choose your Enemy:</h2>
+			<div id="enemyZone"></div>
+	</div>
+
+</body>
+<script src=assets/javascript/game.js></script>
+</html>
