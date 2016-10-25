@@ -30,6 +30,14 @@ var char4 = document.getElementById('handButton');
 	char4.attackPowerGain = 2;
 	char4.counterAttackPower = 20;
 
+var foxSound = document.getElementById('foxSound');
+var marioSound = document.getElementById('marioSound');
+var nessSound = document.getElementById('nessSound');
+var handSound = document.getElementById('handSound');
+
+var successSound = document.getElementById('successSound');
+var failureSound = document.getElementById('failureSound');
+
 var currentPlayer;
 var currentEnemy;
 
@@ -59,6 +67,18 @@ function choosePlayer() {
 				       	$("#enemyZone").append( $(this));
 					}	    
 				});
+			if (currentPlayer.name == "Fox") {
+				foxSound.play();
+			}
+			if (currentPlayer.name == "Mario") {
+				marioSound.play();
+			}
+			if (currentPlayer.name == "Ness") {
+				nessSound.play();
+			}
+			if (currentPlayer.name == "Master Hand") {
+				handSound.play();
+			}
 			$('#fullEnemyZone').show();
 			chooseEnemy();
 		}
@@ -73,6 +93,18 @@ function chooseEnemy() {
 			$("#fightZone").append( $(this));
 			currentEnemy = this;
 			$(this).data('enemy', 'current');
+			if (currentEnemy.name == "Fox") {
+				foxSound.play();
+			}
+			if (currentEnemy.name == "Mario") {
+				marioSound.play();
+			}
+			if (currentEnemy.name == "Ness") {
+				nessSound.play();
+			}
+			if (currentEnemy.name == "Master Hand") {
+				handSound.play();
+			}
 			$('.enemyDefeatedText').remove();
 			$('#playerZone').append("<div id='combatLog'><span id='logBold'>Combat Log:</span></div>");
 			if ( $('#enemyZone').is(':empty') ) {
@@ -97,6 +129,8 @@ function battle() {
 		if (currentPlayer.healthPoints <= 0){
 			$("#playerZone").append( "<h3 id='lossText'>You have been defeated!</h3><br><button id='resetButton'><span class='rainbow'>Click here to play again!</span></button>" );
 				$("#fullEnemyZone").remove();
+				$("#fullFightZone").remove();
+				failureSound.play();
 				$("#attack").remove();
 				resetGame();
 		}
@@ -105,6 +139,7 @@ function battle() {
 			$('#combatLog').remove();
 			$(currentEnemy).remove();
 			$('#fullFightZone').hide();
+			successSound.play();
 			$("#playerZone").append( "<h3 class='enemyDefeatedText'>You have defeated " + currentEnemy.name + "!</h3>" );
 			chooseEnemy();
 			if ( $('#enemyZone').is(':empty') ) {
