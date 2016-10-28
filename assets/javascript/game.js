@@ -8,12 +8,13 @@ var char1 = document.getElementById('foxButton');
 
 var char2 = document.getElementById('marioButton');
 	char2.name = "Mario";
+	char2.pngsrc = 'assest/images/mario.png';
 	char2.healthPoints = 105;
 	char2.maxHealth = 105;
 	char2.attackPower = 0;
 	char2.attackPowerGain = 14;
 	char2.counterAttackPower = 5;
-
+	
 var char3 = document.getElementById('nessButton');
 	char3.name = "Ness";
 	char3.healthPoints = 150;
@@ -111,6 +112,7 @@ function chooseEnemy() {
 				$('#fullEnemyZone').hide();
 			}
 			$('#fullEnemyZone').hide();
+			setTimeout(function() {readySound.play()}, 1500);
 			battle();
 		}
 	})
